@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bosssoft.dynamic.form.mapper.FormMapper" >
+  <resultMap id="BaseResultMap" type="com.bosssoft.dynamic.form.domain.Form" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="FORM_NAME" property="formName" jdbcType="VARCHAR" />
+    <result column="FORM_CODE" property="formCode" jdbcType="VARCHAR" />
+    <result column="PATH" property="path" jdbcType="VARCHAR" />
+    <result column="CATEGORY" property="category" jdbcType="INTEGER" />
+    <result column="TYPE" property="type" jdbcType="VARCHAR" />
+    <result column="TEMPLATE" property="template" jdbcType="BOOLEAN" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+    <result column="CREATION_USER" property="creationUser" jdbcType="VARCHAR" />
+    <result column="MODIFY_USER" property="modifyUser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, FORM_NAME, FORM_CODE, PATH, CATEGORY,TYPE, TEMPLATE, CREATION_TIME, MODIFY_TIME, CREATION_USER, 
+    MODIFY_USER
+  </sql>
+  
+  <select id="selectFormByCondition" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" />
+  	from df_form t
+  	<where>
+  		<if test="search.formName != null and search.formName != ''">
+  		and t.FORM_NAME like CONCAT('%',CONCAT(#{search.formName},'%'))
+        </if>
+        
+        <if test="search.formCode != null and search.formCode != ''">
+  		and t.FORM_CODE like CONCAT('%',CONCAT(#{search.formCode},'%'))
+        </if>
+        
+        <if test="search.type != null and search.type != ''">
+  		and t.TYPE =#{search.type}
+        </if>
+        
+         <if test="search.category != null">
+  		and t.CATEGORY =#{search.category}
+        </if>
+        
+        <if test="search.template != null">
+  		and t.TEMPLATE =#{search.template}
+        </if>
+        
+  	</where>
+  	order by t.CREATION_TIME desc
+  </select>
+  
+</mapper>

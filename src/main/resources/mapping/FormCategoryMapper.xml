@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bosssoft.dynamic.form.mapper.FormCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.bosssoft.dynamic.form.domain.FormCategory" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CATEGORY_NAME" property="categoryName" jdbcType="VARCHAR" />
+    <result column="PARENT" property="parent" jdbcType="INTEGER" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+    <result column="CREATION_USER" property="creationUser" jdbcType="VARCHAR" />
+    <result column="MODIFY_USER" property="modifyUser" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, CATEGORY_NAME, PARENT, CREATION_TIME, MODIFY_TIME, CREATION_USER, MODIFY_USER
+  </sql>
+  
+  <select id="selectFormCategoryByNameLike" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" />
+  	from df_form_category t
+  	where t.CATEGORY_NAME like CONCAT('%',CONCAT(#{nameLike},'%'))
+  </select>
+  
+</mapper>

@@ -1,0 +1,33 @@
+server:
+   port: 8080
+   servlet: 
+    context-path: /dynamicform
+   tomcat:
+      uri-encoding: UTF-8
+
+logging:
+  level: 
+    ROOT: DEBUG
+    org.springframework: DEBUG
+  config: classpath:log4j2.xml
+    
+microservice:
+  framework:
+    #数据访问层相关配置
+    datasource:
+      enabled: true
+      default:
+        url: jdbc:mysql://127.0.0.1:3306/form_bs
+        username: root
+        password: root
+       # url: jdbc:oracle:thin:@192.168.10.42:1521/orcl
+      #  username: form_bs
+      #  password: bs
+        maxActive: 500
+        mybatis:
+          mapper-locations: classpath:mapping/*.xml
+          mapper-base-packages: com.bosssoft.dynamic.form.mapper
+          type-aliases-packages: com.bosssoft.dynamic.form.domain
+          type-handlers-packages: com.bosssoft
+ ##  mapper-base-packages: com.bosssoft.platform.microservice.**.dao
+   

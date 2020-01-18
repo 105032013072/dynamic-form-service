@@ -1,0 +1,5 @@
+<datasources>
+	<!--type 和version 作为联合主键,urlTemplate若没有配置取默认值-->
+	<datasource  type="MySql" version="5.X" jar="mysql-connector-java-3.1.14-bin.jar" driver="com.mysql.jdbc.Driver" urlTemplate="jdbc:mysql://{0}:{1}/{2}?useUnicode=true&amp;characterEncoding=utf8"/>
+	<datasource  type="Oracle" version="9i/10g/11g" jar="ojdbc14-11.2.0.1.0.jar" driver="oracle.jdbc.driver.OracleDriver" urlTemplate="jdbc:oracle:thin:@{0}:{1}/{2}"/>
+</datasources>

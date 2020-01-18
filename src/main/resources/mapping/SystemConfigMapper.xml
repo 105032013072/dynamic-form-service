@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bosssoft.dynamic.form.mapper.SystemConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.bosssoft.dynamic.form.domain.SystemConfig" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="VALUE" property="value" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, CODE,NAME, VALUE
+  </sql>
+  
+  <select id="selectSystemConfigByCondition" resultMap="BaseResultMap">
+  	select <include refid="Base_Column_List" />
+  	from df_system_config t
+  	<where>
+  		<if test="search.name != null and search.name != ''">
+  		and t.NAME like CONCAT('%',CONCAT(#{search.name},'%'))
+  		
+        </if>
+        
+        <if test="search.value != null and search.value != ''">
+  		and t.VALUE like CONCAT('%',CONCAT(#{search.value},'%'))
+        </if>
+  	</where>
+  	order by t.ID desc
+  </select>
+  
+</mapper>

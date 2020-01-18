@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bosssoft.dynamic.form.mapper.FormFieldMapper" >
+  <resultMap id="BaseResultMap" type="com.bosssoft.dynamic.form.domain.FormField" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="FIELD_NAME" property="fieldName" jdbcType="VARCHAR" />
+    <result column="FIELD_DESC" property="fieldDesc" jdbcType="VARCHAR" />
+    <result column="DATA_SOURCE_ID" property="dataSourceId" jdbcType="INTEGER" />
+    <result column="DATA_SOURCE_FIELD" property="dataSourceField" jdbcType="VARCHAR" />
+    <result column="DATA_SOURCE_TABLE" property="dataSourceTable" jdbcType="VARCHAR" />
+    <result column="FORM_MODEL_ID" property="formModelId" jdbcType="INTEGER" />
+    <result column="CUSTOM" property="custom" jdbcType="BIT" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+    <result column="CREATION_USER" property="creationUser" jdbcType="VARCHAR" />
+    <result column="MODIFY_USER" property="modifyUser" jdbcType="VARCHAR" />
+    <result column="FIELD_COMMENT" property="fieldComment" jdbcType="VARCHAR" />
+    <result column="VALIDATION_TYPE" property="validationType" jdbcType="VARCHAR" />
+    <result column="VALIDATION_MESSAGE" property="validationMessage" jdbcType="VARCHAR" />
+    <result column="VALIDATION" property="validation" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, FIELD_NAME, FIELD_DESC, DATA_SOURCE_ID, DATA_SOURCE_FIELD, DATA_SOURCE_TABLE, 
+    FORM_MODEL_ID, CUSTOM, CREATION_TIME, MODIFY_TIME, CREATION_USER, MODIFY_USER, FIELD_COMMENT, 
+    VALIDATION_TYPE, VALIDATION_MESSAGE, VALIDATION
+  </sql>
+</mapper>

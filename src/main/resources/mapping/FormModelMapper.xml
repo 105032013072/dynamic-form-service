@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bosssoft.dynamic.form.mapper.FormModelMapper" >
+  <resultMap id="BaseResultMap" type="com.bosssoft.dynamic.form.domain.FormModel" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="FORM_ID" property="formId" jdbcType="INTEGER" />
+    <result column="FORM_MODEL_NAME" property="formModelName" jdbcType="VARCHAR" />
+    <result column="FORM_MODEL_COMMENT" property="formModelComment" jdbcType="VARCHAR" />
+    <result column="CREATION_TIME" property="creationTime" jdbcType="VARCHAR" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="VARCHAR" />
+    <result column="CREATION_USER" property="creationUser" jdbcType="VARCHAR" />
+    <result column="MODIFY_USER" property="modifyUser" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    ID, FORM_ID, FORM_MODEL_NAME, FORM_MODEL_COMMENT, CREATION_TIME, MODIFY_TIME, CREATION_USER, 
+    MODIFY_USER
+  </sql>
+  
+ 
+</mapper>
